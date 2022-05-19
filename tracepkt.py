@@ -108,7 +108,7 @@ def event_printer(cpu, data, size):
         iptables = " %7s.%-12s:%s" % (event.tablename, hook, verdict)
 
     # Print event
-    print "[%12s] %16s %7s %-34s%s" % (event.netns, event.ifname, direction, flow, iptables)
+    print("[%12s] %16s %7s %-34s%s" % (event.netns, event.ifname, direction, flow, iptables))
 
 if __name__ == "__main__":
     # Get arguments
@@ -117,7 +117,7 @@ if __name__ == "__main__":
     elif len(sys.argv) == 2:
         TARGET = sys.argv[1]
     else:
-        print "Usage: %s [TARGET_IP]" % (sys.argv[0])
+        print("Usage: %s [TARGET_IP]" % (sys.argv[0]))
         sys.exit(1)
 
     # Build probe and open event buffer
@@ -137,7 +137,7 @@ if __name__ == "__main__":
         )
     PING_PID = ping.pid
 
-    print "%14s %16s %7s %-34s %s" % ('NETWORK NS', 'INTERFACE', 'TYPE', 'ADDRESSES', 'IPTABLES')
+    print("%14s %16s %7s %-34s %s" % ('NETWORK NS', 'INTERFACE', 'TYPE', 'ADDRESSES', 'IPTABLES'))
 
     # Listen for event until the ping process has exited
     while ping.poll() is None:
